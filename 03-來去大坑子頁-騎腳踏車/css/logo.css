@@ -77,12 +77,4 @@
 }
 
 
-@media(max-width:376px) {
 
-    .logo-text {
-        width: 70%;
-        top: calc(50% - 50px);
-        left: calc(50% - 35%);
-    }
-
-}
