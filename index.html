@@ -85,7 +85,7 @@
             position: absolute;
             opacity: 0;
             left: 70%;
-            top: 32%;
+            top: 38%;
             -webkit-transition: opacity 3s ease-in-out;
             -moz-transition: opacity 3s ease-in-out;
             -o-transition: opacity 3s ease-in-out;
@@ -123,12 +123,48 @@
             background-size: cover;
             position: absolute;
             left: 80%;
-            top: 48%;
+            top: 54%;
             -webkit-transition: opacity 5s ease-in-out;
             -moz-transition: opacity 5s ease-in-out;
             -o-transition: opacity 5s ease-in-out;
             transition: opacity 5s ease-in-out;
         }
+        @media(max-width:365px) {
+            .pic {
+                left: 1%;
+                top:10%;
+            }
+            .pic1{
+                left: 0%;
+            top: 45%; 
+            }
+            .pic2 {
+                left: 15%;
+            top: 42%; 
+            }
+            .point {
+                left: 60%;
+            top: 67%; 
+            }
+        }
+        /* @media(max-width:768px) {
+            .pic {
+                left: 1%;
+                top:10%;
+            }
+            .pic1{
+                left: 28%;
+            top: 45%; 
+            }
+            .pic2 {
+                left: 33%;
+            top: 42%; 
+            }
+            .point {
+                left: 60%;
+            top: 55%; 
+            }
+        } */
     </style>
 </head>
 
@@ -136,7 +172,7 @@
     <div class="page-Loading">
         <div class="pic"></div>
         <div class="pic1"><img src="./img/趣大坑.png" alt=""></div>
-        <a href="https://www.google.com">
+        <a href="./01-來去大坑首頁/index-mainpage.html">
             <div class="pic2"><img src="./img/牌帶你入坑原木.png" alt=""></div>
         </a>
         <div class="point"></div>
@@ -166,7 +202,7 @@
             randomSpeed = Math.floor((Math.random() * 100));
             $(".loading").css("width", percent + "%");
             $(".progress").text(percent + "%");
-            $(".pic").css("left", (walk - 3) + "%");
+            $(".pic").css("left", (walk -3) + "%");
             percent++;
             walk++;
             //    if (percent <= 100 ) {
