@@ -36,7 +36,6 @@
 @media(max-width:1199px) {
     .logo-text {
         width: 62%;
-        /* top: calc(50% - 100px); */
         left: calc(50% - 20%);
     }
 
@@ -47,7 +46,6 @@
 
     .logo-text {
         width: 62%;
-        /* top: calc(50% - 80px); */
         left: calc(50% - 25%);
     }
 
@@ -59,7 +57,6 @@
 
     .logo-text {
         width: 70%;
-        /* top: calc(50% - 50px); */
         left: calc(50% - 30%);
     }
 
@@ -69,19 +66,9 @@
 @media(max-width:576px) {
     .logo-text {
         width: 80%;
-        /* top: calc(50% - 50px); */
         left: calc(50% - 35%);
     }
 
 }
 
 
-@media(max-width:375px) {
-
-    .logo-text {
-        width: 95%;
-        /* top: calc(50% - 50px); */
-        left: calc(50% - 42%);
-    }
-
-}
