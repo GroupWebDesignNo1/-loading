@@ -1,0 +1,1884 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/logo.css">
+    <link rel="stylesheet" href="./css/nav.css">
+
+    <title>Document</title>
+
+    <!-- **** -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            box-sizing: border-box;
+            /* background-color: rgb(221, 152, 73); */
+            overflow-x: hidden;
+            font-family: 微軟正黑體;
+        }
+
+
+        a {
+            color: whitesmoke;
+        }
+
+        a:hover {
+            background-color: whitesmoke;
+        }
+
+
+        .p-0 {
+            padding: 0px;
+            /* col padding 預設一邊15px 將之消除   */
+        }
+
+        /* padding-height-50 >>padding上下+25 約等於高度50 (RWD盡量不寫高度)
+如果沒有內容 會沒有高 暫時用padding先將height 撐開 (完成後可更改或刪除) */
+        .p-h-50 {
+            padding: 25px 0px;
+        }
+
+        .p-h-100 {
+            padding: 50px 0px;
+        }
+
+        .p-h-200 {
+            padding: 100px 0px;
+        }
+
+        .p-h-300 {
+            padding: 150px 0px;
+        }
+
+        .p-h-400 {
+            padding: 200px 0px;
+        }
+
+        .p-h-500 {
+            padding: 250px 0px;
+        }
+
+        .p-w-50 {
+            padding: 0px 25px;
+
+        }
+
+        .col {
+            /* border: 1px gold solid; */
+            /* 為方便看到位置及大小 加上框線 完成後可刪除 */
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            background-size: contain;
+
+        }
+
+        .modal-body {
+            /* padding: 0; */
+        }
+
+        /*以上為共用 ，以下個別 ******************** */
+        .switch {
+            display: none;
+        }
+
+        .container-swiper-header {
+            width: 100%;
+            height: 38.2vh;
+        }
+
+        .logo {
+            /* width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.7);
+            position: absolute;
+            z-index: 900;
+            border-radius: 50%;
+            border: 1px solid gold;
+            top: 60px;
+            left: 50px; */
+            background-image: url("./img/logo2.png");
+
+        }
+
+        ul {
+            background-image: url("./img/bg-main01.jpg");
+
+        }
+
+        /* .logo-text {
+            width: 700px;
+            height: 200px;
+            position: absolute;
+            z-index: 900;
+            border-radius: 5%;
+            bottom: 0px;
+            left: calc(50% - 350px);
+        }
+
+        .logo-text img {
+            width: 100%;
+            background-position: center;
+        }
+ */
+        /* .buger {
+            visibility: hidden;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.7);
+            position: fixed;
+            z-index: 900;
+            border-radius: 50%;
+
+            border: 1px solid gold;
+            top: 60px;
+            right: 60px;
+
+        }
+
+        .buger .visible {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .buger .hidden {
+            visibility: hidden;
+        } */
+
+        .footer-logo {
+            width: 200px;
+            height: 200px;
+            z-index: 900;
+            border-radius: 50%;
+            /* box-shadow: 3px 3px 3px 0px gold; */
+            background-image: url("./img/logo2.png");
+            background-size: cover;
+            margin: auto;
+
+        }
+
+
+        .opacity-0 {
+            opacity: 0;
+            transition: 1s;
+        }
+
+        .opacity-0:hover {
+            opacity: unset;
+            background-color: transparent;
+
+
+        }
+
+        .position-abosolute {
+            position: absolute;
+        }
+
+        .img_box:hover img {
+            width: 103%;
+        }
+
+
+        .img_box_all {
+            width: 100%;
+            height: 100%;
+            max-height: 642px;
+            position: relative;
+            background-image: url("./img/map01.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin: auto;
+        }
+
+        .notice01 {
+            background-image: url("./img/notice01.png");
+            width: 280px;
+            height: 400px;
+            position: absolute;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            top: 260px;
+            left: 430px;
+            background-color: transparent;
+        }
+
+        .road1 {
+            right: 225px;
+            top: 282px;
+        }
+
+        .road2 {
+            right: 216px;
+            top: 380px;
+        }
+
+        .road3 {
+            right: 191px;
+            top: 445px;
+        }
+
+        .road4 {
+            right: 85px;
+            top: 500px;
+        }
+
+        .road5 {
+            right: 143px;
+            top: 325px;
+        }
+
+        .road5-1 {
+            right: 125px;
+            top: 219px;
+        }
+
+        .road6 {
+            left: 185px;
+            top: 211px;
+        }
+
+        .road7 {
+            left: 176px;
+            top: 205px;
+        }
+
+
+        .road8 {
+            left: 150px;
+            top: 186px;
+        }
+
+        .road9 {
+            left: 160px;
+            top: 358px;
+        }
+
+        .road9-1 {
+            left: 210px;
+            top: 362px;
+        }
+
+        .road10 {
+            left: 260px;
+            top: 368px;
+        }
+
+        /* map */
+        @media(max-width:1140px) {
+            .opacity-0 {
+                display: unset;
+            }
+
+            .img_box img {
+                width: 65%;
+            }
+
+            .img_box_all {
+                max-height: 430px;
+                width: 768px;
+                background-image: url("./img/map01.png");
+
+            }
+
+            .img_box:hover img {
+                width: 66%;
+            }
+
+            .notice01 {
+                /*img 01 or 02 ? */
+                background-image: url("./img/notice01.png");
+                width: 200px;
+                height: 400px;
+                top: 170px;
+                left: 285px;
+            }
+
+
+            .road1 {
+                right: 129px;
+                top: 190px;
+            }
+
+            .road2 {
+                right: 121px;
+                top: 255px;
+            }
+
+            .road3 {
+                right: 100px;
+                top: 302px;
+            }
+
+            .road4 {
+                right: 19px;
+                top: 337px;
+            }
+
+            .road5 {
+                right: 78px;
+                top: 223px;
+            }
+
+            .road5-1 {
+                right: 71px;
+                top: 150px;
+            }
+
+            .road6 {
+                left: 107px;
+                top: 145px;
+            }
+
+            .road7 {
+                left: 108px;
+                top: 140px;
+            }
+
+            .road8 {
+                left: 87px;
+                top: 127px;
+            }
+
+
+            .road9 {
+                left: 92px;
+                top: 243px;
+            }
+
+            .road9-1 {
+                left: 130px;
+                top: 246px;
+            }
+
+            .road10 {
+                left: 170px;
+                top: 250px;
+            }
+
+        }
+
+        @media(max-width:766px) {
+            .opacity-0 {
+                display: none;
+            }
+
+            .switch {
+                display: unset;
+            }
+
+            .img_box_all {
+                width: 100%;
+                max-height: 430px;
+                background-image: url("./img/map02.png");
+                background-size: 100%;
+
+            }
+
+            .notice01 {
+                background-image: url("");
+            }
+
+        }
+
+
+
+
+        /* ************************ */
+        @media(max-width:992px) {}
+
+        @media(max-width:768px) {}
+
+        @media(max-width:493px) {
+            .notice01 {
+                width: 0px;
+            }
+
+        }
+
+
+        @media(max-width:375px) {}
+
+        /* .mask{
+    position: absolute;
+    width:100%;
+    height:40px;
+    top:0;
+    left:0;
+    background-image: url("./img/map01.png");
+    background-size:auto;
+   background-color: white;
+} */
+
+        /* **.************** */
+        .btn-primary {
+            border: none;
+            padding: 0;
+            color: blue;
+        }
+
+        .road1-pic {
+            width: 100%;
+            height: 200px;
+            background-image: url("./img/1號步道.jpg");
+            background-size: cover;
+            margin-bottom: 20px;
+
+        }
+
+        .road2-pic {
+            width: 100%;
+            height: 200px;
+            background-image: url("./img/2號步道.jpg");
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+
+        .road3-pic {
+            width: 100%;
+            height: 200px;
+            background-image: url("./img/3號步道.jpg");
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+
+        .road4-pic {
+            width: 100%;
+            height: 200px;
+            background-image: url("./img/4號步道.jpg");
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+
+        .road5-pic {
+            width: 100%;
+            height: 200px;
+            background-image: url("./img/5號及5-1號步道.jpg");
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+
+        .road5-1-pic {
+            width: 100%;
+            height: 200px;
+            background-image: url("./img/5號及5-1號步道-2.jpg");
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+
+        .road6-pic {
+            width: 100%;
+            height: 200px;
+            background-image: url("./img/6號步道.jpg");
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+
+        .road7-pic {
+            width: 100%;
+            height: 200px;
+            background-image: url("./img/7號步道.jpg");
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+
+        .road8-pic {
+            width: 100%;
+            height: 200px;
+            background-image: url("./img/8號步道.jpg");
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+
+        .road9-pic {
+            width: 100%;
+            height: 200px;
+            background-image: url("./img/9號及9-1號步道.jpg");
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+
+        .road9-1-pic {
+            width: 100%;
+            height: 200px;
+            background-image: url("./img/9號及9-1號步道-2.jpg");
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+
+        .road10-pic {
+            width: 100%;
+            height: 200px;
+            background-image: url("./img/10號步道.jpg");
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+
+        @media(max-width:1199px) {
+            .logo-text {
+                width: 62%;
+                /* top: calc(50% - 100px); */
+                left: calc(50% - 20%);
+            }
+
+        }
+
+        @media(max-width:992px) {
+
+
+            .logo-text {
+                width: 62%;
+                /* top: calc(50% - 80px); */
+                left: calc(50% - 20%);
+            }
+
+
+        }
+
+        @media(max-width:768px) {
+
+
+            .logo-text {
+                width: 70%;
+                /* top: calc(50% - 50px); */
+                left: calc(50% - 25%);
+            }
+
+
+        }
+
+        @media(max-width:576px) {
+            .logo-text {
+                width: 70%;
+                /* top: calc(50% - 50px); */
+                left: calc(50% - 28%);
+            }
+
+        }
+
+
+        @media(max-width:375px) {
+
+            .logo {
+                display: none;
+            }
+
+            .logo-text {
+                width: 70%;
+                top: calc(50% - 50px);
+                left: calc(50% - 35%);
+            }
+.logo-text img{width: 100%;}
+        }
+
+        @media(max-width:375px) {
+            .img_box_all {
+                background-image: url("./img/map375.png");
+                max-height: 2000px;
+                height: 200%;
+            }
+
+            .nav-g {
+                width: 50px;
+                height: 50px;
+            }
+
+            .bar01 {
+                width: 26px;
+
+            }
+
+            .bar02 {
+                width: 26px;
+                height: 2px;
+
+            }
+
+            .bar03 {
+                width: 26px;
+                height: 2px;
+
+            }
+
+            .bar04 {
+                width: 26px;
+                height: 2px;
+
+
+            }
+
+            .bar05 {
+                width: 26px;
+
+            }
+
+            .nav-g:hover .bar02 {
+                background-color: tomato;
+
+                transform: translateY(3px) rotate(-25deg);
+
+                transition-duration: 0.5s, 0.5s;
+
+            }
+
+            .nav-g:hover .bar03 {
+                background-color: tomato;
+                transform: rotate(-30deg);
+                transform: translateX(1px);
+                transition-duration: 0.5s, 0.5s;
+
+            }
+
+            .nav-g:hover .bar04 {
+                background-color: tomato;
+                transform: translateY(-3px) rotate(25deg);
+                transition-duration: 0.5s, 0.5s;
+
+            }
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header col col-lg-12 p-0">
+        <div class="logo"></div>
+        <div class="buger hidden">
+            <div class="nav-g arc">
+                <div class="bar01"></div>
+                <div class="bar02"></div>
+                <div class="bar03"></div>
+                <div class="bar04"></div>
+                <div class="bar05"></div>
+                <div class="ul-g">
+                    <ul>
+                        <!-- <a href="#">
+                            <li>按鈕1</li>
+                        </a> -->
+                        <a href="#loc1">
+                            <li>走趣大坑 Home</li>
+                        </a>
+                        <a href="#loc1.5">
+                            <li>趣跋山</li>
+                        </a>
+
+                        <a href="#loc2">
+                            <li>趣騎卡打車</li>
+                        </a>
+                        <!-- <a href="#loc3">
+                            <li>趣生態園區 Eco </li>
+                        </a> -->
+
+                        <a href="#loc4">
+                            <li>趣呷奔</li>
+                        </a>
+
+                        <a href="#loc5">
+                            <li>趣七淘</li>
+                        </a>
+                        <a href="#loc6">
+                            <li>安抓趣</li>
+                        </a>
+
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+        <div id="scene_header" class="logo-text">
+            <img src="./img/walk01.png" data-depth="0.6" alt="">
+        </div>
+        <!-- 以下是BANNER -->
+        <div class="container-swiper-header p-0">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/01.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/02.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/03.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/04.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/05.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/06.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/07.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/08.jpg" alt="">
+                    </div>
+
+                </div>
+                <!-- Add Pagination -->
+                <!-- <div class="swiper-pagination"></div> -->
+                <!-- Add Arrows -->
+                <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+            </div>
+        </div>
+    </header>
+    <div class="col col-lg-12 p-h-50">
+    </div>
+    <div class="div" style="font-size: 48px;text-align: center;padding-bottom: 25px;">登山步道路線圖</div>
+    <div class="container-walk" style="max-width: 1140px;margin: auto;">
+
+        <div class="img_box_all">
+            <div class="notice01" data-aos="zoom-out">
+
+            </div>
+            <!-- road-1 -->
+            <!-- <div class="mask"></div> -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#road-1">
+                <div class="position-abosolute opacity-0  road1">
+                    <div class="img_box ">
+                        <img width="100%" src="./img/road1.png" alt="">
+                    </div>
+                </div>
+            </button>
+            <!-- road-2 -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#road-2">
+                <div class="position-abosolute opacity-0  road2">
+                    <div class="img_box ">
+                        <img width="100%" src="./img/road2.png" alt="">
+                    </div>
+                </div>
+            </button>
+            <!-- road-3 -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#road-3">
+                <div class="position-abosolute opacity-0  road3">
+                    <div class="img_box ">
+                        <img width="100%" src="./img/road3.png" alt="">
+                    </div>
+                </div>
+            </button>
+            <!-- road-4 -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#road-4">
+                <div class="position-abosolute opacity-0  road4">
+                    <div class="img_box ">
+                        <img width="100%" src="./img/road4.png" alt="">
+                    </div>
+                </div>
+            </button>
+            <!-- road-5 -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#road-5">
+                <div class="position-abosolute opacity-0  road5">
+                    <div class="img_box ">
+                        <img width="100%" src="./img/road5.png" alt="">
+                    </div>
+                </div>
+            </button>
+            <!-- road-5-1 -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#road-5-1">
+                <div class="position-abosolute opacity-0  road5-1">
+                    <div class="img_box ">
+                        <img width="100%" src="./img/road5-1.png" alt="">
+                    </div>
+                </div>
+            </button>
+            <!-- road-6 -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#road-6">
+                <div class="position-abosolute opacity-0  road6">
+                    <div class="img_box ">
+                        <img width="100%" src="./img/road6.png" alt="">
+                    </div>
+                </div>
+            </button>
+            <!-- road-7 -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#road-7">
+                <div class="position-abosolute opacity-0  road7">
+                    <div class="img_box ">
+                        <img width="100%" src="./img/road7.png" alt="">
+                    </div>
+                </div>
+            </button>
+            <!-- road-8 -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#road-8">
+                <div class="position-abosolute opacity-0  road8">
+                    <div class="img_box ">
+                        <img width="100%" src="./img/road8.png" alt="">
+                    </div>
+                </div>
+            </button>
+            <!-- road-9 -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#road-9">
+                <div class="position-abosolute opacity-0  road9">
+                    <div class="img_box ">
+                        <img width="100%" src="./img/road9.png" alt="">
+                    </div>
+                </div>
+            </button>
+            <!-- road-9-1 -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#road-9-1">
+                <div class="position-abosolute opacity-0  road9-1">
+                    <div class="img_box ">
+                        <img width="100%" src="./img/road9-1.png" alt="">
+                    </div>
+                </div>
+            </button>
+            <!-- road-10 -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#road-10">
+                <div class="position-abosolute opacity-0  road10">
+                    <div class="img_box ">
+                        <img width="100%" src="./img/road10.png" alt="">
+                    </div>
+                </div>
+            </button>
+
+
+
+        </div>
+
+    </div>
+
+    <div class="container p-h-200 switch" style="max-width: 100%;margin: auto;justify-content: center;">
+        <div class="row p-0" style="max-width: 100%;margin: 0px;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">1號步道</h5>
+                        <!-- <button type="button" class="cose" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button> -->
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="road1-pic"></div>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>
+                                        長 度：約1.6公里，登山木棧道部分較屬高強度登山步道，請自行評估體能狀況後再行上山。</p>
+                                    <p> 登山口：沿東山路往中興嶺方向直走，經東山樂園至雙連橋右轉上山即可到達。</p>
+                                    <p> 特 色：此步道位於森林區，途中繞過果園、竹林等。
+                                    </p>
+                                    <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/358/%E5%A4%A7%E5%9D%911%E8%99%9F%E6%AD%A5%E9%81%93
+                " style="text-decoration:none; color:blue;">詳細介紹</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                        <!-- <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/358/%E5%A4%A7%E5%9D%911%E8%99%9F%E6%AD%A5%E9%81%93
+                " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">2號步道</h5>
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button> -->
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="road2-pic"></div>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>長 度：約1.3公里，適合有登山經驗、愛挑戰者。</p>
+                                    <p> 登山口：在2號停車場，由東山路右轉清水巷約五公里即可到達。</p>
+                                    <p> 特 色：此步道難度較高，有兩個枕木步道，皆為近八十度的好漢坡，不易攀爬，深具挑戰性。此外，路口處具備水果、山產及各種小吃等十分齊全。</p>
+                                    <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/359/%E5%A4%A7%E5%9D%912%E8%99%9F%E6%AD%A5%E9%81%93
+       " style="text-decoration:none; color:blue;">詳細介紹</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/359/%E5%A4%A7%E5%9D%912%E8%99%9F%E6%AD%A5%E9%81%93
+        " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 3 -->
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">3號步道</h5>
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button> -->
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="road3-pic"></div>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>長 度：約1.3公里，適合生態教育。</p>
+                                    <p> 登山口：可從大坑圓環右轉橫坑巷，再經連坑巷左轉，繞過停車場往上走即為登山口。</p>
+                                    <p> 特 色：此步道沿途具有豐富自然生態教育資源，包括鳥類、植物、動物及昆蟲等種類，途中並設有各種植物解說牌以利民眾認識了解。</p>
+                                    <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/360/%E5%A4%A7%E5%9D%913%E8%99%9F%E6%AD%A5%E9%81%93-%E6%9A%AB%E6%99%82%E5%B0%81%E9%96%89%E5%85%A8%E7%B7%9A%E6%AD%A5%E9%81%93-
+            " style="text-decoration:none; color:blue;">詳細介紹</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                        <!-- <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/360/%E5%A4%A7%E5%9D%913%E8%99%9F%E6%AD%A5%E9%81%93-%E6%9A%AB%E6%99%82%E5%B0%81%E9%96%89%E5%85%A8%E7%B7%9A%E6%AD%A5%E9%81%93-
+    " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                    </div>
+                </div>
+            </div>
+            <!--  4-->
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">4號步道</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="road4-pic"></div>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>長 度：約1.9公里，適合體力充沛者。</p>
+                                    <p> 登山口：可從大坑圓環右轉橫坑巷，再經連坑巷左轉，繞過停車場往上走即為登山口。</p>
+                                    <p> 特 色：此步道沿途具有豐富自然生態教育資源，包括鳥類、植物、動物及昆蟲等種類，途中並設有各種植物解說牌以利民眾認識了解。</p>
+                                    <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/360/%E5%A4%A7%E5%9D%913%E8%99%9F%E6%AD%A5%E9%81%93-%E6%9A%AB%E6%99%82%E5%B0%81%E9%96%89%E5%85%A8%E7%B7%9A%E6%AD%A5%E9%81%93-
+   " style="text-decoration:none; color:blue;">詳細介紹</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/360/%E5%A4%A7%E5%9D%913%E8%99%9F%E6%AD%A5%E9%81%93-%E6%9A%AB%E6%99%82%E5%B0%81%E9%96%89%E5%85%A8%E7%B7%9A%E6%AD%A5%E9%81%93-
+    " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 5 -->
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">5號步道</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="road5-pic"></div>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>長 度：約1.4公里；5-1號約1.6公里高度最高、長度最長，適合體力佳、喜登高者。 </p>
+                                    <p> 登山口：由中興嶺往新五村方向行進，至嶺馨芳蘭園右轉小巷，即至登山口。 </p>
+                                    <p> 特 色：此步道可連結1~4號步道的終點。沿途有視野良好的展望點，包括黑松亭、高峰亭、頭嵙山頂、木塔亭等，若透視度佳即可眺望臺中市區、大肚台地等。</p>
+                                    <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/362/%E5%A4%A7%E5%9D%915%E8%99%9F%E5%8F%8A5-1%E8%99%9F%E6%AD%A5%E9%81%93
+   " style="text-decoration:none; color:blue;">詳細介紹</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/362/%E5%A4%A7%E5%9D%915%E8%99%9F%E5%8F%8A5-1%E8%99%9F%E6%AD%A5%E9%81%93
+    " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 5-1 -->
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">5-1號步道</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="road5-1-pic"></div>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>長 度：約1.4公里；5-1號約1.6公里高度最高、長度最長，適合體力佳、喜登高者。 </p>
+                                    <p> 登山口：由中興嶺往新五村方向行進，至嶺馨芳蘭園右轉小巷，即至登山口。 </p>
+                                    <p> 特 色：此步道可連結1~4號步道的終點。沿途有視野良好的展望點，包括黑松亭、高峰亭、頭嵙山頂、木塔亭等，若透視度佳即可眺望臺中市區、大肚台地等。</p>
+                                    <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/362/%E5%A4%A7%E5%9D%915%E8%99%9F%E5%8F%8A5-1%E8%99%9F%E6%AD%A5%E9%81%93
+               " style="text-decoration:none; color:blue;">詳細介紹</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/362/%E5%A4%A7%E5%9D%915%E8%99%9F%E5%8F%8A5-1%E8%99%9F%E6%AD%A5%E9%81%93
+                " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 6 -->
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">6號步道</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="road6-pic"></div>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>長 度：約1.5公里，適合男女老少。 </p>
+                                    <p> 登山口：有兩入口處，一經松竹路循產業道路至6號停車場攀登而上，另一從光西巷進入直達觀音亭，再循步道而上。 </p>
+                                    <p> 特
+                                        色：此步道坡度平緩，終點可到達風動石公園，可遠眺豐原地區風貌及臺中市的環保煙囪。途中有一觀音亭，白色觀音佇立其中，不少人至此參拜，有供應免費早餐(週六、日八點半以前)，另設有兒童遊樂場、涼亭等。
+                                    </p>
+                                    <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/363/%E5%A4%A7%E5%9D%916%E8%99%9F%E6%AD%A5%E9%81%93
+                " style="text-decoration:none; color:blue;">詳細介紹</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/363/%E5%A4%A7%E5%9D%916%E8%99%9F%E6%AD%A5%E9%81%93
+                " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 7 -->
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">7號步道</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="road7-pic"></div>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>長 度：約1.3公里，適合男女老少。 </p>
+                                    <p> 登山口：大部份經由6號停車場進入登山口。 </p>
+                                    <p> 特 色：此步道終點可至風動石公園，沿途有各式果園，如柑橘、龍眼、荔枝等，數木成蔭，十分宜人，坡度平緩，容易行走。
+                                    </p>
+                                    <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/364/%E5%A4%A7%E5%9D%917%E8%99%9F%E6%AD%A5%E9%81%93
+        " style="text-decoration:none; color:blue;">詳細介紹</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/364/%E5%A4%A7%E5%9D%917%E8%99%9F%E6%AD%A5%E9%81%93
+        " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 8 -->
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">8號步道</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="road8-pic"></div>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>長 度：約0.3公里，適合男女老少、親子同遊。 </p>
+                                    <p> 登山口：原入口並不顯眼，由建成巷行約800公尺產業道路進入。 </p>
+                                    <p> 特 色：此步道沿途果園林立，令登山客忍不住駐足觀賞，終點亦達風動石公園，園內設置多處涼亭，提供民眾一處美好的休憩場所。
+                                    </p>
+                                    <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/365/%E5%A4%A7%E5%9D%918%E8%99%9F%E6%AD%A5%E9%81%93
+        " style="text-decoration:none; color:blue;">詳細介紹</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/365/%E5%A4%A7%E5%9D%918%E8%99%9F%E6%AD%A5%E9%81%93
+        " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 9 -->
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">9號步道</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="road9-pic"></div>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>長 度 : 約1.6公里，適合全家大小健走。 </p>
+                                    <p> 登山口 : 經補庫停車場斜對面之經補路直走至九九橋，再直行約1.5公里處。 </p>
+                                    <p> 特 色 : 此步道沿途充滿綠蔭，環境十分清幽，視野相當遼闊，可遠眺十一期重劃區都市景緻、另有日據時期遺留之彈藥庫及大里溪，在路口處為九二一地震公園。
+                                    </p>
+                                    <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/44/%E5%A4%A7%E5%9D%919%E8%99%9F%E5%8F%8A9-1%E8%99%9F%E6%AD%A5%E9%81%93
+        " style="text-decoration:none; color:blue;">詳細介紹</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/44/%E5%A4%A7%E5%9D%919%E8%99%9F%E5%8F%8A9-1%E8%99%9F%E6%AD%A5%E9%81%93
+        " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 9-1 -->
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">9-1號步道</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="road9-1-pic"></div>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>長 度 : 約1.6公里，適合全家大小健走。 </p>
+                                    <p> 登山口:經補庫停車場斜對面之經補路直走經過九九橋再直走。 </p>
+                                    <p> 特 色:於前往步道口路途中設有農夫市集，登山民眾可在此買到大坑地區農特產品。
+                                    </p>
+                                    <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/44/%E5%A4%A7%E5%9D%919%E8%99%9F%E5%8F%8A9-1%E8%99%9F%E6%AD%A5%E9%81%93
+    " style="text-decoration:none; color:blue;">詳細介紹</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                        <!-- <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/44/%E5%A4%A7%E5%9D%919%E8%99%9F%E5%8F%8A9-1%E8%99%9F%E6%AD%A5%E9%81%93
+    " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 10 -->
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">10號步道</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="road10-pic"></div>
+                                </div>
+
+                                <div class="col-12">
+                                    <p>長 度：約1.2公里，適合戶外教學及全家大小。 </p>
+                                    <p> 登山口：經補庫停車場斜對面之經補路直走至九九橋對面。 </p>
+                                    <p> 特
+                                        色：此步道計有竹林步道、相思林道、九重葛花區、菇婆芋生態區及峭壁雄峰等五處，生態豐富，均設有解說牌。路面有枕木碎石步道、原生土道及木棧道等，並設有觀景涼亭及平台，供人休息。
+                                    </p>
+                                    <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/448/%E5%A4%A7%E5%9D%9110%E8%99%9F%E6%AD%A5%E9%81%93-8-5%E8%87%B310-31%E6%AD%A2%E5%B0%81%E9%96%89%E6%AD%A5%E9%81%93%E5%85%A8%E7%B7%9A-
+    " style="text-decoration:none; color:blue;">詳細介紹</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/448/%E5%A4%A7%E5%9D%9110%E8%99%9F%E6%AD%A5%E9%81%93-8-5%E8%87%B310-31%E6%AD%A2%E5%B0%81%E9%96%89%E6%AD%A5%E9%81%93%E5%85%A8%E7%B7%9A-
+    " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+    <!-- ********************** -->
+    <!-- road-l -->
+    <div class="modal fade" id="road-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">1號步道</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="road1-pic"></div>
+                            </div>
+
+                            <div class="col-6">
+                                <p>
+                                    長 度：約1.6公里，登山木棧道部分較屬高強度登山步道，請自行評估體能狀況後再行上山。</p>
+                                <p> 登山口：沿東山路往中興嶺方向直走，經東山樂園至雙連橋右轉上山即可到達。</p>
+                                <p> 特 色：此步道位於森林區，途中繞過果園、竹林等。
+                                </p>
+                                <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/358/%E5%A4%A7%E5%9D%911%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:blue;">詳細介紹</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                    <!-- <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/358/%E5%A4%A7%E5%9D%911%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- road-2 -->
+    <div class="modal fade" id="road-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">2號步道</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="road2-pic"></div>
+                            </div>
+
+                            <div class="col-6">
+                                <p>長 度：約1.3公里，適合有登山經驗、愛挑戰者。</p>
+                                <p> 登山口：在2號停車場，由東山路右轉清水巷約五公里即可到達。</p>
+                                <p> 特 色：此步道難度較高，有兩個枕木步道，皆為近八十度的好漢坡，不易攀爬，深具挑戰性。此外，路口處具備水果、山產及各種小吃等十分齊全。</p>
+                                <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/359/%E5%A4%A7%E5%9D%912%E8%99%9F%E6%AD%A5%E9%81%93
+           " style="text-decoration:none; color:blue;">詳細介紹</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/359/%E5%A4%A7%E5%9D%912%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- road-3 -->
+    <div class="modal fade" id="road-3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">3號步道</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="road3-pic"></div>
+                            </div>
+
+                            <div class="col-6">
+                                <p>長 度：約1.3公里，適合生態教育。</p>
+                                <p> 登山口：可從大坑圓環右轉橫坑巷，再經連坑巷左轉，繞過停車場往上走即為登山口。</p>
+                                <p> 特 色：此步道沿途具有豐富自然生態教育資源，包括鳥類、植物、動物及昆蟲等種類，途中並設有各種植物解說牌以利民眾認識了解。</p>
+                                <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/360/%E5%A4%A7%E5%9D%913%E8%99%9F%E6%AD%A5%E9%81%93-%E6%9A%AB%E6%99%82%E5%B0%81%E9%96%89%E5%85%A8%E7%B7%9A%E6%AD%A5%E9%81%93-
+                    " style="text-decoration:none; color:blue;">詳細介紹</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                    <!-- <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/360/%E5%A4%A7%E5%9D%913%E8%99%9F%E6%AD%A5%E9%81%93-%E6%9A%AB%E6%99%82%E5%B0%81%E9%96%89%E5%85%A8%E7%B7%9A%E6%AD%A5%E9%81%93-
+            " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- road-4 -->
+    <div class="modal fade" id="road-4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">4號步道</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="road4-pic"></div>
+                            </div>
+
+                            <div class="col-6">
+                                <p>長 度：約1.9公里，適合體力充沛者。</p>
+                                <p> 登山口：可從大坑圓環右轉橫坑巷，再經連坑巷左轉，繞過停車場往上走即為登山口。</p>
+                                <p> 特 色：此步道沿途具有豐富自然生態教育資源，包括鳥類、植物、動物及昆蟲等種類，途中並設有各種植物解說牌以利民眾認識了解。</p>
+                                <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/360/%E5%A4%A7%E5%9D%913%E8%99%9F%E6%AD%A5%E9%81%93-%E6%9A%AB%E6%99%82%E5%B0%81%E9%96%89%E5%85%A8%E7%B7%9A%E6%AD%A5%E9%81%93-
+           " style="text-decoration:none; color:blue;">詳細介紹</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/360/%E5%A4%A7%E5%9D%913%E8%99%9F%E6%AD%A5%E9%81%93-%E6%9A%AB%E6%99%82%E5%B0%81%E9%96%89%E5%85%A8%E7%B7%9A%E6%AD%A5%E9%81%93-
+            " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- road-5 -->
+    <div class="modal fade" id="road-5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">5號步道</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="road5-pic"></div>
+                            </div>
+
+                            <div class="col-6">
+                                <p>長 度：約1.4公里；5-1號約1.6公里高度最高、長度最長，適合體力佳、喜登高者。 </p>
+                                <p> 登山口：由中興嶺往新五村方向行進，至嶺馨芳蘭園右轉小巷，即至登山口。 </p>
+                                <p> 特 色：此步道可連結1~4號步道的終點。沿途有視野良好的展望點，包括黑松亭、高峰亭、頭嵙山頂、木塔亭等，若透視度佳即可眺望臺中市區、大肚台地等。</p>
+                                <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/362/%E5%A4%A7%E5%9D%915%E8%99%9F%E5%8F%8A5-1%E8%99%9F%E6%AD%A5%E9%81%93
+           " style="text-decoration:none; color:blue;">詳細介紹</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/362/%E5%A4%A7%E5%9D%915%E8%99%9F%E5%8F%8A5-1%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- road-5-1 -->
+    <div class="modal fade" id="road-5-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">5-1號步道</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="road5-1-pic"></div>
+                            </div>
+
+                            <div class="col-6">
+                                <p>長 度：約1.4公里；5-1號約1.6公里高度最高、長度最長，適合體力佳、喜登高者。 </p>
+                                <p> 登山口：由中興嶺往新五村方向行進，至嶺馨芳蘭園右轉小巷，即至登山口。 </p>
+                                <p> 特 色：此步道可連結1~4號步道的終點。沿途有視野良好的展望點，包括黑松亭、高峰亭、頭嵙山頂、木塔亭等，若透視度佳即可眺望臺中市區、大肚台地等。</p>
+                                <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/362/%E5%A4%A7%E5%9D%915%E8%99%9F%E5%8F%8A5-1%E8%99%9F%E6%AD%A5%E9%81%93
+           " style="text-decoration:none; color:blue;">詳細介紹</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/362/%E5%A4%A7%E5%9D%915%E8%99%9F%E5%8F%8A5-1%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- road-6 -->
+    <div class="modal fade" id="road-6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">6號步道</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="road6-pic"></div>
+                            </div>
+
+                            <div class="col-6">
+                                <p>長 度：約1.5公里，適合男女老少。 </p>
+                                <p> 登山口：有兩入口處，一經松竹路循產業道路至6號停車場攀登而上，另一從光西巷進入直達觀音亭，再循步道而上。 </p>
+                                <p> 特
+                                    色：此步道坡度平緩，終點可到達風動石公園，可遠眺豐原地區風貌及臺中市的環保煙囪。途中有一觀音亭，白色觀音佇立其中，不少人至此參拜，有供應免費早餐(週六、日八點半以前)，另設有兒童遊樂場、涼亭等。
+                                </p>
+                                <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/363/%E5%A4%A7%E5%9D%916%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:blue;">詳細介紹</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/363/%E5%A4%A7%E5%9D%916%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- road-7 -->
+    <div class="modal fade" id="road-7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">7號步道</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="road7-pic"></div>
+                            </div>
+
+                            <div class="col-6">
+                                <p>長 度：約1.3公里，適合男女老少。 </p>
+                                <p> 登山口：大部份經由6號停車場進入登山口。 </p>
+                                <p> 特 色：此步道終點可至風動石公園，沿途有各式果園，如柑橘、龍眼、荔枝等，數木成蔭，十分宜人，坡度平緩，容易行走。
+                                </p>
+                                <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/364/%E5%A4%A7%E5%9D%917%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:blue;">詳細介紹</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/364/%E5%A4%A7%E5%9D%917%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- road-8 -->
+    <div class="modal fade" id="road-8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">8號步道</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="road8-pic"></div>
+                            </div>
+
+                            <div class="col-6">
+                                <p>長 度：約0.3公里，適合男女老少、親子同遊。 </p>
+                                <p> 登山口：原入口並不顯眼，由建成巷行約800公尺產業道路進入。 </p>
+                                <p> 特 色：此步道沿途果園林立，令登山客忍不住駐足觀賞，終點亦達風動石公園，園內設置多處涼亭，提供民眾一處美好的休憩場所。
+                                </p>
+                                <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/365/%E5%A4%A7%E5%9D%918%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:blue;">詳細介紹</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/365/%E5%A4%A7%E5%9D%918%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- road-9 -->
+    <div class="modal fade" id="road-9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">9號步道</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="road9-pic"></div>
+                            </div>
+
+                            <div class="col-6">
+                                <p>長 度 : 約1.6公里，適合全家大小健走。 </p>
+                                <p> 登山口 : 經補庫停車場斜對面之經補路直走至九九橋，再直行約1.5公里處。 </p>
+                                <p> 特 色 : 此步道沿途充滿綠蔭，環境十分清幽，視野相當遼闊，可遠眺十一期重劃區都市景緻、另有日據時期遺留之彈藥庫及大里溪，在路口處為九二一地震公園。
+                                </p>
+                                <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/44/%E5%A4%A7%E5%9D%919%E8%99%9F%E5%8F%8A9-1%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:blue;">詳細介紹</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/44/%E5%A4%A7%E5%9D%919%E8%99%9F%E5%8F%8A9-1%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- road-9-1 -->
+    <div class="modal fade" id="road-9-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">9-1號步道</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="road9-1-pic"></div>
+                            </div>
+
+                            <div class="col-6">
+                                <p>長 度 : 約1.6公里，適合全家大小健走。 </p>
+                                <p> 登山口:經補庫停車場斜對面之經補路直走經過九九橋再直走。 </p>
+                                <p> 特 色:於前往步道口路途中設有農夫市集，登山民眾可在此買到大坑地區農特產品。
+                                </p>
+                                <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/44/%E5%A4%A7%E5%9D%919%E8%99%9F%E5%8F%8A9-1%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:blue;">詳細介紹</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                    <!-- <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/44/%E5%A4%A7%E5%9D%919%E8%99%9F%E5%8F%8A9-1%E8%99%9F%E6%AD%A5%E9%81%93
+            " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- road-10 -->
+    <div class="modal fade" id="road-10" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">10號步道</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="road10-pic"></div>
+                            </div>
+
+                            <div class="col-6">
+                                <p>長 度：約1.2公里，適合戶外教學及全家大小。 </p>
+                                <p> 登山口：經補庫停車場斜對面之經補路直走至九九橋對面。 </p>
+                                <p> 特
+                                    色：此步道計有竹林步道、相思林道、九重葛花區、菇婆芋生態區及峭壁雄峰等五處，生態豐富，均設有解說牌。路面有枕木碎石步道、原生土道及木棧道等，並設有觀景涼亭及平台，供人休息。
+                                </p>
+                                <a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/448/%E5%A4%A7%E5%9D%9110%E8%99%9F%E6%AD%A5%E9%81%93-8-5%E8%87%B310-31%E6%AD%A2%E5%B0%81%E9%96%89%E6%AD%A5%E9%81%93%E5%85%A8%E7%B7%9A-
+            " style="text-decoration:none; color:blue;">詳細介紹</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"><a href="https://travel.taichung.gov.tw/zh-tw/Attractions/Intro/448/%E5%A4%A7%E5%9D%9110%E8%99%9F%E6%AD%A5%E9%81%93-8-5%E8%87%B310-31%E6%AD%A2%E5%B0%81%E9%96%89%E6%AD%A5%E9%81%93%E5%85%A8%E7%B7%9A-
+            " style="text-decoration:none; color:white;">詳細介紹</a></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- *********** -->
+    <div class="col col-lg-12 p-0" style="margin-top:100px; ">
+        <div class="footer p-h-200 p-0" style="background-color: rgb(143, 50, 34);">
+            <div class="container">
+                <div class="row p-0" style="margin: 0px;display: flex;justify-content: center;">
+                    <div class="col col-12 col-xl-3 col-lg-5 col-md-6 col-sm-12"
+                        style="margin-top: 80px; min-height: 200px;">
+
+                        <div class="footer-logo"></div>
+
+                    </div>
+                    <div class="col col-12 col-xl-5 col-lg-6 col-md-6 col-sm-12" style="margin-top: 80px;">
+                        <div class="footer-119" style="color: whitesmoke;display: flex; justify-content: center;">
+                            <div class="footer-119-text">
+                                大坑風景區緊急事故處理
+                                <br>
+                                <br>
+                                東山派出所</br>東山路2段30號 / TEL:04-22392713
+                                <p></p>
+                                台中市救難協會</br>東山路2段151-2號 / TEL: 04-22110022
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col col-12 col-xl-4 col-lg-12 col-md-12 col-sm-12" style="margin-top: 80px;">
+                        <div class="footer-sitemap">
+                            <div class="row" style="text-align: center;padding-bottom: 30px;color: whitesmoke;">
+                                <div class="col"> <a href="">
+                                    回首頁 </a>
+                            </div>
+
+                                <div class="col"> <a href="">
+                                        趣跋山 </a>
+                                </div>
+
+                                <div class="col"> <a href="">
+                                        趣騎車 </a>
+                                </div>
+
+
+
+                            </div>
+                            <div class="row" style="text-align: center;color: whitesmoke;padding-bottom: 70px;">
+                                <div class="col"><a href="">趣七淘</a></div>
+                                <div class="col"><a href=""> 趣呷奔</a></div>
+                                <div class="col"><a href="">安怎趣</a></div>
+
+                            </div>
+                            <div class="row" style="text-align: center;color: whitesmoke;padding-bottom: 50px;">
+                                <div class="col" style="color: whitesmoke;text-align: center;">
+                                    本網站僅供教學使用</div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!--  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <!--  -->
+    <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+    <!-- ********* -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ***************** -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <!-- Initialize Swiper -->
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+
+    </script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'fade',
+            loop: true,
+
+        });
+    </script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        var scene_header = document.getElementById('scene_header');
+        var parallaxInstance = new Parallax(scene_header);
+    </script>
+    <script>
+        // 控制漢堡條出現
+        $(window).scroll(function () {
+            var scroll = $(window).scrollTop();
+            console.log(scroll)
+
+            if (scroll > 50) {
+                $(".buger").removeClass('hidden').addClass('visible')
+
+            } else {
+                $(".buger").addClass('hidden').removeClass('visible')
+            }
+
+        })
+    </script>
+    <!-- <script>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+
+    </script> -->
+</body>
+
+</html>

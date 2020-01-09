@@ -1,0 +1,1245 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- **** -->
+    <link rel="stylesheet" href="./css/swiper.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            box-sizing: border-box;
+            font-family: 微軟正黑體;
+            background-color: rgb(221, 152, 73);
+            background-color: white;
+            overflow-x: hidden;
+
+
+        }
+
+        a {
+            color: whitesmoke;
+            text-decoration: none;
+
+        }
+
+        a:hover {
+            background-color: whitesmoke;
+            text-decoration: none;
+
+        }
+
+        .arc {
+            border-radius: 5%;
+            box-shadow: 5px 5px 5px 0 gray;
+            border: 2px solid lightgray;
+
+        }
+
+        .p-0 {
+            padding: 0px;
+            /* col padding 預設一邊15px 將之消除   */
+        }
+
+        /* padding-height-50 >>padding上下+25 約等於高度50 (RWD盡量不寫高度)
+如果沒有內容 會沒有高 暫時用padding先將height 撐開 (完成後可更改或刪除) */
+        .p-h-50 {
+            padding: 25px 0px;
+        }
+
+        .p-h-100 {
+            padding: 50px 0px;
+        }
+
+        .p-h-200 {
+            padding: 100px 0px;
+        }
+
+        .p-h-300 {
+            padding: 150px 0px;
+        }
+
+        .p-h-400 {
+            padding: 200px 0px;
+        }
+
+        .p-h-500 {
+            padding: 250px 0px;
+        }
+
+        .p-h-600 {
+            padding: 300px 0px;
+        }
+
+        .m-l-50 {
+            margin-left: 50px;
+        }
+
+        .m-r-15 {
+            margin-right: 15px;
+        }
+
+        .p-l-30 {
+            padding-left: 30px;
+        }
+
+        .float-right {
+            float: right;
+            /* clear: both; */
+        }
+
+        * {
+            font-family: 微軟正黑體;
+        }
+
+        .float-left {
+            float: left;
+            /* clear: both; */
+        }
+
+
+        /* .col {
+            border: 1px gold solid;
+          為方便看到位置及大小 加上框線 完成後可刪除 
+        } */
+
+        /* ******************** */
+        .container-swiper-header {
+            width: 100%;
+            height: 100vh;
+            /* border: 5px red solid; */
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.7);
+            position: absolute;
+            z-index: 900;
+            border-radius: 50%;
+            /* box-shadow: 3px 3px 3px 0px lightgrey; */
+            border: 1px solid lightgrey;
+            top: 60px;
+            left: 50px;
+            background-image: url("./img/logo2.png");
+        }
+
+        .logo-text {
+            width: 46%;
+            height: 200px;
+            position: absolute;
+            z-index: 900;
+            border-radius: 5%;
+            top: calc(50% - 100px);
+            left: calc(50% - 20%);
+            /* transform: translate(-50%, -50%) */
+            /* 因為aos tramsform translate 被複寫 不使用 */
+        }
+
+
+        .buger {
+            visibility: hidden;
+
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            /* background-color: rgba(255, 255, 255, 0.7); */
+            position: fixed;
+            z-index: 999;
+
+            top: 60px;
+            right: 60px;
+            cursor: pointer;
+        }
+
+
+
+        /* 漢堡條出現和隱藏 */
+        .buger .visible {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .buger .hidden {
+            visibility: hidden;
+        }
+
+        /* 漢堡條 menu list */
+
+
+        /* ********* */
+        .ul-g {
+            position: relative;
+        }
+
+        ul {
+            width: 200px;
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            position: absolute;
+            top: 0px;
+            right: -1000vw;
+            border-radius: 5%;
+            box-shadow: 5px 5px 5px 0 gray;
+            border: lightgray 3px solid;
+            background-image: url("./img/bg-main01.jpg");
+            background-size: cover;
+
+
+        }
+
+        ul li {
+            list-style: none;
+            width: 200px;
+            padding: 15px;
+            text-align: center;
+            /* margin-left: 10px; */
+            background-color: oldlaceed;
+            position: relative;
+            margin: auto;
+
+        }
+
+
+        .nav-g:hover {
+            border: tomato 3px solid;
+            transition: 0.5s;
+
+        }
+
+        .nav-g:hover ul {
+            right: -30px;
+            transition: 0.8s;
+        }
+
+        .nav-g ul:hover {
+            border: rgb(143, 108, 86) 3px solid;
+            transition: 0.5s;
+
+        }
+
+        .nav-g ul li:hover {
+            background-color: rgba(238, 170, 24, 0.856);
+            transition: 0.5s;
+
+
+
+        }
+
+        .nav-g:hover .bar02 {
+            background-color: tomato;
+
+            transform: translateY(6px) rotate(-30deg);
+
+            transition-duration: 0.5s, 0.5s;
+
+        }
+
+        .nav-g:hover .bar03 {
+            background-color: tomato;
+            transform: rotate(-30deg);
+            transform: translateX(2px);
+            transition-duration: 0.5s, 0.5s;
+
+        }
+
+        .nav-g:hover .bar04 {
+            background-color: tomato;
+            transform: translateY(-6px) rotate(30deg);
+            transition-duration: 0.5s, 0.5s;
+
+        }
+
+        .nav-g {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: fixed;
+            background-color: #EAB8B5;
+            right: 20px;
+            top: 20px;
+            z-index: 999;
+            border: whitesmoke 1px solid;
+            display: flex;
+            justify-content: center;
+            align-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .bar01 {
+            background-color: #EAB8B5;
+            width: 50px;
+            height: 1px;
+
+        }
+
+        .bar02 {
+            background-color: white;
+            width: 50px;
+            height: 4px;
+            position: relative;
+
+        }
+
+        .bar03 {
+            background-color: white;
+            width: 50px;
+            height: 4px;
+
+        }
+
+        .bar04 {
+            background-color: white;
+            width: 50px;
+            height: 4px;
+            position: relative;
+
+
+        }
+
+        .bar05 {
+            background-color: #EAB8B5;
+            width: 50px;
+            height: 1px;
+
+        }
+
+
+        /* 天氣 */
+        .container-main {
+            max-width: 1140px;
+            margin: auto;
+            padding: 50px 0;
+        }
+
+        .container-weather {
+            margin: auto;
+            /* width: 500px; */
+            width: 90%;
+            height: 728px;
+            background-image: url("./img/weather-v2.png");
+            background-size: cover;
+
+            /* background: linear-gradient(45deg, rgba(60, 148, 128, 1)35%, rgba(4, 135, 201, 0.7)76%);
+            background: -moz-linear-gradient(45deg, rgba(60, 148, 128, 1)35%, rgba(4, 135, 201, 0.7)76%);
+            background: -webkit-linear-gradient(45deg, rgba(60, 148, 128, 1)35%, rgba(4, 135, 201, 0.7)76%);
+            background: -o-linear-gradient(45deg, rgba(60, 148, 128, 1)35%, rgba(4, 135, 201, 0.7)76%);
+ */
+            border-radius: 5%;
+        }
+
+        .area {
+            font-size: 48px;
+            color: #1D80A2;
+            text-align: center;
+            font-family: 標楷體, DFKai-sb, BiauKai, 'AR PL UKai TW', "ヒラギノ明朝 ProN W6", 微軟正黑體;
+        }
+
+        .cards {
+            width: 100%;
+            height: 90%;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .weathersign {
+            width: 100%;
+            height: 50%;
+            /* margin:auto;*/
+            /* background-color: red;*/
+        }
+
+        .card-small {
+            width: 100%;
+            /*padding: 20px;*/
+            /*background-color: skyblue;*/
+            color: white;
+            display: flex;
+            flex-wrap: wrap;
+
+
+        }
+
+        .box {
+            width: 30%;
+            height: 150px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 800;
+            background-color: white;
+            /*color:black;*/
+            margin: auto;
+            padding: 10px 0;
+            margin-bottom: 10px;
+            border: solid 1px black;
+            border-radius: 10%;
+            /* -webkit-box-shadow: 18px 10px 5px 0px rgba(0, 0, 0, 0.75); */
+            /* -moz-box-shadow: 18px 10px 5px 0px rgba(0, 0, 0, 0.75); */
+            box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .text {
+            margin: auto;
+            color: black;
+            font-family: 標楷體, DFKai-sb, BiauKai, 'AR PL UKai TW', "ヒラギノ明朝 ProN W6", 微軟正黑體;
+        }
+        @media(min-width:1199px) {
+            .text{
+                font-size:24px;
+            }
+        }
+
+        /* 關於大坑 */
+        .container-about {
+            width: 100%;
+            height: 91%;
+            border-radius: 5%;
+            /* background-color: gray; */
+            background-image: url("./img/牛皮紙-06.png");
+            background-size: cover;
+        }
+
+        .title-about {
+            font-size: 48px;
+            color: #1D80A2;
+            /* padding-bottom: 20px; */
+            text-align: center;
+            font-family: 標楷體, DFKai-sb, BiauKai, 'AR PL UKai TW', "ヒラギノ明朝 ProN W6", 微軟正黑體;
+        }
+
+        /* .about-content {
+            background-color: blue;
+        } */
+
+        .timeline {
+            width: 5pt;
+            height: 65%;
+            background-color: #676947;
+            position: absolute;
+            left: 50%;
+            bottom: 136px;
+        }
+
+        .row-time {
+            /* max-width: 1140px; */
+            width: 100%;
+            height: 90px;
+            margin: auto;
+            margin-bottom: 10px;
+            /* background-color: blue; */
+            padding-top: 18px;
+        }
+
+        .row-end {
+            max-width: 1140px;
+            width: 100%;
+            height: 65vh;
+            margin: auto;
+            /* background-color: blue; */
+
+        }
+
+        .point-in-time {
+            width: 30pt;
+            height: 30pt;
+            background-color: #566f0d;
+            border-radius: 50%;
+            position: absolute;
+            left: calc(50% - 12.5pt);
+
+        }
+
+        .point-in-time-end {
+            width: 30pt;
+            height: 30pt;
+            background-color: #566f0d;
+            border-radius: 50%;
+            position: absolute;
+            left: calc(50% - 12.5pt);
+            bottom: calc(-120px - 30pt);
+
+        }
+
+        .row-left {
+            width: calc(50% - 50px);
+            height: 100%;
+            margin-left: 20px;
+            /* background-color: darkgray; */
+            line-height: 0.5;
+            text-align: right;
+        }
+
+        .row-right {
+            width: calc(50% - 50px);
+            height: 100%;
+            /* margin-left: 50px; */
+            margin-right: 20px;
+            /* background-color: darkkhaki; */
+            line-height: 0.5;
+            text-align: left;
+        }
+
+        .row-end {
+            max-width: 1140px;
+            width: 100%;
+            height: 65vh;
+            margin: auto;
+            /* background-color: blue; */
+
+        }
+
+
+        /* ************* */
+        .contain-news {
+            width: 100%;
+            background-image: url("./img/06.jpg");
+            background-size: cover;
+            background-position: center;
+            padding-bottom: 45px;
+            padding-top: 45px;
+
+        }
+
+        .subject-news {
+            max-width: 1140px;
+            margin: auto;
+            text-align: center;
+            font-size: 48px;
+            /* padding-bottom:20px; */
+            background-color: white;
+            padding-top: 45px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .container-swiper-news {
+            width: 100%;
+            max-width: 1140px;
+            margin: auto;
+        }
+
+
+        .card {
+
+            padding: 30px 45px;
+            border: 0px;
+            /* flex-wrap: wrap; */
+            flex-direction: row;
+            border-radius: 0 0 10px 10px;
+            margin: auto;
+
+        }
+
+        .card a {
+            display: flex;
+            padding-left: 0px;
+
+        }
+
+        .card-title {
+            padding-bottom: 50px;
+        }
+
+        .card-text {
+            text-align: justify;
+        }
+
+        .card-body {
+            padding: 0px;
+            padding-left: 15px;
+            width: 39%
+                /* min-width: 250px; */
+
+        }
+
+        /* ************* */
+        .footer-logo {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.7);
+            z-index: 900;
+            border-radius: 50%;
+            background-image: url("./img/logo2.png");
+            background-size: cover;
+            margin: auto;
+
+        }
+
+
+        /* ******** */
+
+        @media(max-width:1199px) {
+            .logo-text {
+                width: 62%;
+                top: calc(50% - 100px);
+                left: calc(50% - 20%);
+            }
+
+        }
+
+        @media(max-width:992px) {
+
+
+            .logo-text {
+                width: 62%;
+                top: calc(50% - 80px);
+                left: calc(50% - 25%);
+            }
+
+
+        }
+
+        @media(max-width:768px) {
+            .card {
+                flex-wrap: wrap;
+            }
+
+            .card a {
+                margin: auto;
+                padding-bottom: 10px;
+            }
+
+
+            .logo-text {
+                width: 70%;
+                top: calc(50% - 50px);
+                left: calc(50% - 30%);
+            }
+
+
+        }
+
+        @media(max-width:576px) {
+            .logo-text {
+                width: 80%;
+                top: calc(50% - 50px);
+                left: calc(50% - 35%);
+            }
+
+        }
+
+
+        @media(max-width:375px) {
+            .logo {
+                display: none;
+            }
+
+        
+
+            .nav-g {
+                width: 50px;
+                height: 50px;
+            }
+
+            .bar01 {
+                width: 26px;
+
+            }
+
+            .bar02 {
+                width: 26px;
+                height: 2px;
+
+            }
+
+            .bar03 {
+                width: 26px;
+                height: 2px;
+
+            }
+
+            .bar04 {
+                width: 26px;
+                height: 2px;
+
+
+            }
+
+            .bar05 {
+                width: 26px;
+
+            }
+
+            .nav-g:hover .bar02 {
+                background-color: tomato;
+
+                transform: translateY(3px) rotate(-25deg);
+
+                transition-duration: 0.5s, 0.5s;
+
+            }
+
+            .nav-g:hover .bar03 {
+                background-color: tomato;
+                transform: rotate(-30deg);
+                transform: translateX(1px);
+                transition-duration: 0.5s, 0.5s;
+
+            }
+
+            .nav-g:hover .bar04 {
+                background-color: tomato;
+                transform: translateY(-3px) rotate(25deg);
+                transition-duration: 0.5s, 0.5s;
+
+            }
+
+
+
+        }
+
+.box{
+    font-size:18px;
+}
+
+
+     
+    </style>
+</head>
+
+<body>
+    <header class="header col col-lg-12 p-0">
+        <div class="logo "></div>
+        <div class="buger hidden">
+            <div class="nav-g arc">
+                <div class="bar01"></div>
+                <div class="bar02"></div>
+                <div class="bar03"></div>
+                <div class="bar04"></div>
+                <div class="bar05"></div>
+                <div class="ul-g">
+                    <ul>
+                        <!-- <a href="#">
+                            <li>按鈕1</li>
+                        </a> -->
+                        <a href="#">
+                            <li>走趣大坑 Home</li>
+                        </a>
+                        <a href="../02-來去大坑子頁-去跋山/park-2010-01-03-v2 - .html">
+                            <li>趣跋山</li>
+                        </a>
+
+                        <a href="../03-來去大坑子頁-騎腳踏車/bike-2020-01-09.html">
+                            <li>趣騎卡打車</li>
+                        </a>
+                        <!-- <a href="#loc3">
+                            <li>趣生態園區 Eco </li>
+                        </a> -->
+
+                        <a href="../04-來去大坑子頁-美食/food-2020-01-09.html">
+                            <li>趣呷奔</li>
+                        </a>
+
+                        <a href="../05-來去大坑子頁-去七淘/path-改一日遊.html">
+                            <li>趣七淘</li>
+                        </a>
+                        <a href="../06-來去大坑子頁-住宿交通/traffic&resturant-v6.html">
+                            <li>安抓趣</li>
+                        </a>
+
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- ************ -->
+        </div>
+        <div id="scene_header" class="logo-text">
+            <img src="./img/title25.png" data-depth="0.6" alt="">
+        </div>
+        <div class="container-swiper-header p-0">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/01.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/02.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/03.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/04.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/05.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/06.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/07.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/08.jpg" alt="">
+                    </div>
+
+                </div>
+                <!-- <div class="swiper-pagination"></div> -->
+                <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+            </div>
+        </div>
+
+    </header>
+    <!--  -->
+    <div class="container-main">
+
+        <div class="row no-gutters">
+
+            <div class="col-xl-6 col-sm-12 p-h-100">
+                <!-- 天氣 -->
+                <div class="area">大坑天氣</div>
+                <div class="container-weather">
+
+                    <div class="cards">
+                        <!--   <div class="weathersign"><img src="https://www.cwb.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/01.svg" alt="" style="width:100%; height:100%; margin;auto;"></div>
+            <div class="card">
+                <div class="box"><div class="text"><p>時間:</p>2012/12/26</div></div>
+                <div class="box"><div class="text"><p>天氣:</p>  晴時多雲</div></div>
+                <div class="box"><div class="text"><p>溫度:</p>  20°C - 30°C</div></div>
+                <div class="box"><div class="text"><p>紫外線指數:</p>  中量級</div></div>
+                <div class="box"><div class="text"><p>溼度:</p>  0%</div></div>
+                <div class="box"><div class="text"><p>降雨機率:</p>  0%</div></div>
+            </div>-->
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xl-6 p-h-100 col-sm-12">
+                <div class="title-about">關於大坑風景區</div>
+                <div class="container-about">
+
+                    <div class="about-content">
+                        <div class="timeline"></div>
+                        <!-- 1st row -->
+                        <div class="row-time">
+                            <div class="point-in-time" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+                            </div>
+                            <div class="row-left float-left " data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+                                <!-- <ul class="text-aline-right">主題</ul> -->
+                                <p style="font-weight: 800; font-size:24px; color:#B14500">1976年</p>
+                                <p style="font-size:20px; color:#422E14;line-height: 1.1;">由台中市政府開發成立</p>
+                            </div>
+                            <div class="row-right float-right" data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+                            </div>
+                        </div>
+                        <!-- 2nd row -->
+                        <div class="row-time">
+                            <div class="point-in-time" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+                            </div>
+                            <div class="row-left  float-left " data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+                            </div>
+                            <div class="row-right float-right" data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+                                <p style="font-weight: 800; font-size:24px; color:#B14500">1991年</p>
+                                <p style="font-size:20px; color:#422E14;line-height: 1.1;"> 1~8號步道開闢</p>
+                            </div>
+                        </div>
+                        <!-- 3rd row -->
+                        <div class="row-time">
+                            <div class="point-in-time" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+                            </div>
+                            <div class="row-left float-left " data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+                                <p style="font-weight: 800; font-size:24px; color:#B14500">1999年</p>
+                                <p style="font-size:20px; line-height: 1.1; text-align:justify; color:#422E14;">
+                                    921大地震後，車籠埔斷層穿越大坑，發現溫泉資源</p>
+                            </div>
+                            <div class="row-right float-right" data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+                            </div>
+                        </div>
+                        <!-- 4th row -->
+                        <div class="row-time">
+                            <div class="point-in-time" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+                            </div>
+                            <div class="row-left  float-left " data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+                            </div>
+                            <div class="row-right float-right" data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+                                <p style="font-weight: 800; font-size:24px; color:#B14500">2003年</p>
+                                <p style="font-size:20px; color:#422E14;line-height: 1.1;"> 建立風動石公園</p>
+                            </div>
+                        </div>
+                        <!-- 5th row -->
+                        <div class="row-time">
+                            <div class="point-in-time" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+                            </div>
+                            <div class="row-left float-left " data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+
+                                <p style="font-weight: 800; font-size:24px; color:#B14500">2005年</p>
+                                <p style="font-size:20px; color:#422E14;line-height: 1.1;"> 9號步道啟用</p>
+                            </div>
+                            <div class="row-right float-right" data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+                            </div>
+                        </div>
+                        <!-- 6th row -->
+                        <div class="row-time">
+                            <div class="point-in-time" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+                            </div>
+                            <div class="row-left  float-left " data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+                            </div>
+                            <div class="row-right float-right" data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+                                <p style="font-weight: 800; font-size:24px; color:#B14500">2008年</p>
+                                <p style="font-size:20px; color:#422E14;line-height: 1.1;">10號步道啟用</p>
+                            </div>
+                        </div>
+                        <!-- 7th row -->
+                        <div class="row-time">
+                            <div class="point-in-time" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+                            </div>
+                            <div class="row-left float-left " data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+
+                                <p style="font-weight: 800; font-size:24px; color:#B14500">2013年</p>
+                                <p style="font-size:20px; color:#422E14;line-height: 1.1;">9-1號步道啟用</p>
+                            </div>
+                            <div class="row-right float-right" data-aos="fade-up"
+                                data-aos-anchor-placement="center-bottom">
+                            </div>
+                        </div>
+
+                        <!-- 我是終點的點點 -->
+                        <!-- <div class="point-in-time-end" data-aos="fade-up" data-aos-anchor-placement="center-bottom"></div> -->
+                        <!-- </div> -->
+                        <!-- 我是最後的照片區 -->
+                        <!-- <div class="row-end " data-aos="fade-up" data-aos-anchor-placement="center-bottom"> -->
+                        <!-- <ul class="text-aline-center" >END</ul> -->
+                        <!-- <div class="box-test"></div> -->
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contain-news">
+        <div class="subject-news">最新消息</div>
+        <!--  -->
+        <div class="container-swiper-news p-0 ">
+            <div class="swiper-container">
+                <div class="swiper-wrapper" style="height: unset;">
+
+                    <div class="swiper-slide" style="height: auto;">
+                        <div class="card ">
+                            <a href="https://feversocial.com/pages/8315"
+                                class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col12 ">
+                                <img class="card-img-top" src="./img/news01.png" alt="Card image cap">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-size: 24px;">
+                                    大坑步道生態
+                                    健走闖關活動</h5>
+                                <p class="card-text" style="font-size: 20px;">
+
+                                    辦法
+
+                                    STEP1：完成三個闖關任務集章
+
+                                    STEP2：在 臺中市風景區觀光推廣系列活動(點選左方文字可進入頁面)臉書粉絲專頁按讚
+
+                                    STEP3：至此網頁上傳我是登頂英雄王照片，並填寫資料
+
+                                    STEP4：經服務台工作人員確認，即可參加集章活動好禮三抽一，前100名完成者還可領取早鳥限定禮喔！
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card" style="width: unset;">
+                            <a href="https://feversocial.com/pages/9774"
+                                class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col12 ">
+                                <img class="card-img-top" src="./img/news02.png" alt="Card image cap">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-size: 24px;">
+                                    我是登山王</h5>
+                                <p class="card-text" style="font-size: 20px;">
+                                    大坑步道的100種玩法
+                                    你的是哪一種？
+                                    大坑風景區裡的12條步道各有特色，
+                                    無論是親子踏青、情侶約會、山友挑戰或是生態考察，
+                                    所有「玩家」都能在大坑步道找到自己的玩法。
+                                    什麼？還不知道最適合你的玩法是哪一種嗎，
+                                    那就快一起來前進大坑，找出你的專屬玩法，
+                                    說不定你是傳說中的 大坑步道登山王 哦
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card" style="width: unset;">
+                            <a href="https://www.scenic.taichung.gov.tw/1992545/post"
+                                class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col12 ">
+                                <img class="card-img-top" src="./img/news01.png" alt="Card image cap">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-size: 24px;">
+                                    觀旅局整修大坑1、6號步道工程完竣 登山健行舒適安全
+                                </h5>
+                                <p class="card-text" style="font-size: 20px;">
+                                    大坑1號步道因107年受豪雨災害影響，造成邊坡大規模崩塌及部分路段毀損，6號步道亦有設施老舊與基礎土石流失情形，除建設新設施外，盧秀燕市長和市府團隊亦持續對舊有設施之維護編列預算整修，自今年4月底開工迄今半年多來的努力，今年11月中旬已順利將損壞較嚴重路段整建完成。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card" style="width: unset;">
+                            <a href="https://www.scenic.taichung.gov.tw/1992545/post"
+                                class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col12 ">
+                                <img class="card-img-top" src="./img/news01.png" alt="Card image cap">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-size: 24px;">
+                                    大坑2、3、4、8號等登山步道整修工程持續進行
+                                </h5>
+                                <p class="card-text" style="font-size: 20px;">
+                                    ⚡️臺中市大坑2、3、4、8號等登山步道整修工程持續進行中
+
+                                    臺中市風景區管理所刻正辦理臺中市大坑各登山步道整修工程，盼透過全段檢修老舊損壞步道及附屬設施，大幅提升大坑步道服務品質；為加速步道修繕時程，市府採步道分階段封閉方式施工，以降低影響民眾登山不便時間。
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card" style="width: unset;">
+                            <a href="https://www.taichung.travel/zh-tw/Event/PressReleaseDetail/5323/%E5%A4%A7%E5%9D%91%E6%AD%A5%E9%81%93%E6%96%B0%E5%BB%BA%E5%85%AC%E5%BB%81%E5%AE%8C%E5%B7%A5-%E6%89%93%E9%80%A0%E5%8F%8B%E5%96%84%E7%99%BB%E5%B1%B1%E7%92%B0%E5%A2%83"
+                                class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col12 ">
+                                <img class="card-img-top" src="./img/news01.png" alt="Card image cap">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-size: 24px;">
+                                    大坑步道新建公廁完工 打造友善登山環境</h5>
+                                <p class="card-text" style="font-size: 20px;">
+                                    大坑9、9-1及10號登山步道因靠近市區，且互相連通，可形成一日遊登山路網，成為登山遊客首選行程，然公廁數量卻長期不足，因此市府今年度編列經費於9-1號登山步道旁新建1處公廁，今(14)日完工啟用，結合大坑在地景觀特色，以亮麗色彩呈現清新活潑風格，優化如廁環境。
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <!-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+            </div>
+
+        </div>
+    </div>
+    <div class="col col-lg-12 p-0" style="margin-top:0px; ">
+        <div class="footer p-h-200 p-0" style="background-color: rgb(143, 50, 34);">
+            <div class="container">
+                <div class="row p-h-100" style="margin: 0px;display: flex;flex-wrap: wrap;">
+                    <div class="col col-12 col-xl-3 col-lg-5 col-md-6 col-sm-12" style="margin-top: 80px;">
+
+                        <div class="footer-logo"></div>
+
+                    </div>
+                    <div class="col col-12 col-xl-5 col-lg-6 col-md-6 col-sm-12" style="margin-top: 80px;">
+                        <div class="footer-119" style="color: whitesmoke;display: flex; justify-content: center;">
+                            <div class="footer-119-text">
+                                大坑風景區緊急事故處理
+                                <br>
+                                <br>
+                                東山派出所</br>東山路2段30號 / TEL:04-22392713
+                                <p></p>
+                                台中市救難協會</br>東山路2段151-2號 / TEL: 04-22110022
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col col-12 col-xl-4 col-lg-12 col-md-12 col-sm-12" style="margin-top: 80px;">
+                        <div class="footer-sitemap">
+                            <div class="row" style="text-align: center;padding-bottom: 30px;color: whitesmoke;">
+
+                                <div class="col"> <a href="#">
+                                        回首頁 </a>
+                                </div>
+                                <div class="col"> <a href="../02-來去大坑子頁-去跋山/park-2010-01-03-v2 - .html">
+                                        趣跋山 </a>
+                                </div>
+
+                                <div class="col"> <a href="../03-來去大坑子頁-騎腳踏車/bike-2020-01-09.html">
+                                        趣騎車 </a>
+                                </div>
+
+
+
+                            </div>
+                            <div class="row" style="text-align: center;color: whitesmoke;padding-bottom: 70px;">
+                                <div class="col"><a href="../05-來去大坑子頁-去七淘/path-改一日遊.html">趣七淘</a></div>
+                                <div class="col"><a href="../04-來去大坑子頁-美食/food-2020-01-09.html"> 趣呷奔</a></div>
+                                <div class="col"><a href="../06-來去大坑子頁-住宿交通/traffic&resturant-v6.html">安怎趣</a></div>
+
+                            </div>
+                            <div class="row" style="text-align: center;color: whitesmoke;">
+                                <div class="col" style="color: whitesmoke;text-align: center;">
+                                    本網站僅供教學使用</div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- *********** -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <!--  -->
+    <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+    <!-- ********* -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ***************** -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'fade',
+            loop: true,
+
+        });
+    </script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        var scene_header = document.getElementById('scene_header');
+        var parallaxInstance = new Parallax(scene_header);
+    </script>
+    <script>
+        // 控制漢堡條出現
+        $(window).scroll(function () {
+            var scroll = $(window).scrollTop();
+            console.log(scroll)
+
+            if (scroll > 200) {
+                $(".buger").removeClass('hidden').addClass('visible')
+
+            } else {
+                $(".buger").addClass('hidden').removeClass('visible')
+            }
+
+        })
+    </script>
+    <script>
+        fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-075?Authorization=CWB-DD52A760-5367-4983-9633-87FB48E96E30&locationName=%E5%8C%97%E5%B1%AF%E5%8D%80,')
+            .then(function (respone) {
+                console.log(respone)
+                return respone.json();
+            })
+            .then(function (weather_array) {
+                var locations = weather_array.records.locations
+                console.log(locations)
+
+                locations.forEach(function (locations) {
+                    var area = locations.location[0].locationName
+                    console.log(area)
+                    var currenttime = locations.location[0].weatherElement[6].time[0].startTime
+                    console.log(currenttime)  //日期起始時間
+                    var wx = locations.location[0].weatherElement[6].time[0].elementValue[0].value
+                    console.log(wx)  //天氣現象
+                    var MinT = locations.location[0].weatherElement[8].time[0].elementValue[0].value
+                    console.log(MinT) //最低溫度C
+                    var MaxT = locations.location[0].weatherElement[12].time[0].elementValue[0].value
+                    console.log(MaxT) //最高溫度C
+                    var UVI = locations.location[0].weatherElement[9].time[0].elementValue[1].value
+                    console.log(UVI) //紫外線指數
+                    var RH = locations.location[0].weatherElement[2].time[0].elementValue[0].value
+                    console.log(RH) //相對溼度%
+                    var PoP12h = locations.location[0].weatherElement[0].time[0].elementValue[0].value
+                    console.log(PoP12h) //降雨機率%
+                    var WeatherDescription = locations.location[0].weatherElement[10].time[0].elementValue[0].value
+                    console.log(WeatherDescription) //天氣預報綜合描述
+
+
+
+                    if (wx == "晴天") {
+                        var weather_icon = 'https://www.cwb.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/01.svg'
+                    } else if (wx == "晴時多雲" || wx == "多雲時晴" || wx == "多雲時陰") {
+                        var weather_icon = 'https://www.cwb.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/02.svg'
+                    } else if (wx == "多雲" || wx == "陰天") {
+                        var weather_icon = 'https://www.cwb.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/07.svg'
+                    } else if (wx == "雨天" || wx == "多雲短暫雨" || wx == "多雲時陰短暫雨" || wx == "陰短暫雨") {
+                        var weather_icon = 'https://www.cwb.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/08.svg'
+                    }
+
+                    var date = new Date()
+                    var current_date = date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate()
+                    var cards = document.querySelector('.cards')
+                    cards.innerHTML += `<div class="weathersign"><img src="${weather_icon}" alt="" style="width:100%; height:100%; margin;auto;"></div>
+                   <div class="card-small">
+                    <div class="box"><div class="text"><p style="color:black;">日期</p>${current_date}</div></div>
+                       <div class="box"><div class="text"><p style="color:black;">天氣</p>${wx}</div></div>
+                       <div class="box"><div class="text"><p style="color:black;">溫度</p>${MinT}°C - ${MaxT}°C</div></div>
+                       <div class="box"><div class="text"><p style="color:black;">紫外線指數</p> ${UVI}</div></div>
+                       <div class="box"><div class="text"><p style="color:black;">溼度</p> ${RH}%</div></div>
+                       <div class="box"><div class="text"><p style="color:black;">降雨機率</p>${PoP12h}%</div></div>
+                   </div>`
+                })
+            })
+      //  <div class="weathersign"><img src="${weather_icon}" alt="" style="width:100%; height:100%; margin;auto;"></div>
+            //       <div class="card">
+                  //     <div class="box"><div class="text">${current_date}</div></div>
+                  //     <div class="box"><div class="text">${wx}</div></div>
+                  //     <div class="box"><div class="text">${MinT}C - ${MaxT}C</div></div>
+                  //     <div class="box"><div class="text"><p>紫外線指數</p> ${UVI}</div></div>
+                   //    <div class="box"><div class="text"><p>溼度</p> ${RH}%</div></div>
+                   //    <div class="box"><div class="text"><p>降雨機率</p>${PoP12h}%</div></div>
+                //   </div>
+    </script>
+
+</body>
+
+</html>

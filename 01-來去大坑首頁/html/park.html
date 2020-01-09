@@ -1,0 +1,347 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- **** -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            box-sizing: border-box;
+            background-color: rgb(221, 152, 73);
+            font-family: 微軟正黑體;
+        }
+
+
+        .p-0 {
+            padding: 0px;
+            /* col padding 預設一邊15px 將之消除   */
+        }
+
+        /* padding-height-50 >>padding上下+25 約等於高度50 (RWD盡量不寫高度)
+如果沒有內容 會沒有高 暫時用padding先將height 撐開 (完成後可更改或刪除) */
+        .p-h-50 {
+            padding: 25px 0px;
+        }
+
+        .p-h-100 {
+            padding: 50px 0px;
+        }
+
+        .p-h-200 {
+            padding: 100px 0px;
+        }
+
+        .p-h-300 {
+            padding: 150px 0px;
+        }
+
+        .p-h-400 {
+            padding: 200px 0px;
+        }
+
+        .p-h-500 {
+            padding: 250px 0px;
+        }
+
+        .p-w-50 {
+            padding: 0px 25px;
+
+        }
+
+        .col {
+            border: 1px gold solid;
+            /* 為方便看到位置及大小 加上框線 完成後可刪除 */
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            width: 130%;
+        }
+
+
+        /*以上為共用 ，以下個別 ******************** */
+        .container-swiper-header {
+            width: 100%;
+            height: 38.2vh;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.7);
+            position: absolute;
+            z-index: 900;
+            border-radius: 50%;
+            /* box-shadow: 3px 3px 3px 0px gold; */
+            border: 1px solid gold;
+            top: 60px;
+            left: 50px;
+        }
+
+        .logo-text {
+            width: 700px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+            z-index: 900;
+            border-radius: 5%;
+            bottom: 0px;
+            left: calc(50% - 350px);
+            /* transform: translate(-50%, -50%) */
+            /* 因為aos tramsform translate 被複寫 不使用 */
+        }
+
+        .logo-text img {
+            width: 100%;
+            background-position: center;
+        }
+
+        .buger {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.7);
+            position: fixed;
+            z-index: 900;
+            border-radius: 50%;
+
+            border: 1px solid gold;
+            top: 60px;
+            right: 60px;
+
+        }
+
+        /* **************** */
+        .container-park {
+            background-image: url("./img/park01.jpg");
+
+        }
+
+        .park-pic-park {
+            background-image: url("./img/park01.jpg");
+            min-height: 100vh;
+            background-size: cover;
+            background-attachment: fixed;
+
+
+
+        }
+
+        .park-pic-butterfly {
+            background-image: url("./img/park02.png");
+            min-height: 38.2vh;
+            border: 10px darkslategray solid;
+            background-position: center;
+            background-color: darkslategray;
+            background-attachment: fixed;
+
+
+        }
+
+        .park-pic-firefly {
+            background-image: url("./img/park03.jpg");
+            min-height: 61.8vh;
+            background-size: cover;
+            background-position: bottom;
+
+
+
+        }
+
+        .park-text {
+            background-color: rgba(247, 243, 223, 0.85);
+            padding-left: 50px;
+            padding-right: 50px;
+            border-radius: 5%;
+            box-shadow: 3px 3px 3px 0px gold;
+            /* border: 1px solid gold; */
+            font-size: 18pt;
+            color: darkslategray;
+            margin: 50px 0px;
+
+        }
+
+        .park-pic {
+            background-repeat: no-repeat;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-around;
+            /* padding: 100px 0px; */
+            /* rwd 改padding 增加擠下去 
+            padding不夠會並排
+            */
+        }
+
+        /* @media(max-width: 992px){
+            .park-pic{
+                padding: 500px 0px;
+
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <header class="header col-12 col-lg-12 p-0">
+        <div class="logo"></div>
+        <div class="buger"></div>
+        <div id="scene_header" class="logo-text">
+            <img src="./img/title01.png" data-depth="0.6" alt="">
+        </div>
+        <!-- 以下是BANNER -->
+        <div class="container-swiper-header p-0">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/header01.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/header02.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/header03.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/header04.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/header05.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/header06.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/header07.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/header08.jpg" alt="">
+                    </div>
+
+                </div>
+                <!-- Add Pagination -->
+                <!-- <div class="swiper-pagination"></div> -->
+                <!-- Add Arrows -->
+                <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+            </div>
+        </div>
+    </header>
+
+    <div class="col col-lg-12 p-0">
+        <section class="container-park ">
+            <div class="park-pic-park col-lg-12 p-h-200  park-pic">
+                <div class="park-text p-h-50 col-xl-8 col-lg-8 col-md-8 col-sm-12 col12" data-aos="zoom-in-left" data-aos-delay="800"
+                    data-aos-duration="1000">
+                    自民國88年921地震後，臺中大坑中正露營區旁的溪谷地沿岸崩塌，中央補助經費重新修建步道及涼亭等公共設施。次年開始進行棲地營造，成立大坑蝴蝶及螢火蟲復育區(現今大坑生態園區)，位於大坑中正露營區與大坑四號步道入口之間。
+
+
+                </div>
+                <div class="park-text p-h-50 col-xl-8 col-lg-8 col-md-8 col-sm-12 col12" data-aos="zoom-in-left"
+                    data-aos-delay="800" data-aos-duration="1000">
+                    園區適合體驗在地的自然環境及昆蟲植物，課程規劃也以大坑地區植物及昆蟲生態為主軸，隨季節發展不同主題。二、三月是春天的開花季，四月、五月黑翅蟬，六月獨角仙，七八月是蝴蝶翩翩飛舞的季節，秋天能認識不同植物的種子、冬天可以看到許多青斑蝶。
+
+                </div>
+
+
+            </div>
+        </section>
+        <section class="container-park">
+
+            <div class="park-pic-butterfly col-lg-12 park-pic">
+
+            </div>
+        </section>
+        <section class="container-park">
+            <div class="park-pic-firefly col-lg-12  park-pic">
+                <!-- <div class="park-text col col-lg-8 p-h-50" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
+                    如今已調查到常出現的蝶種達140多種，也有許多其他昆蟲，如:黑翅蟬、獨角仙、黑翅螢、渡邊長吻白蠟蟬等，深受大眾喜愛! 於104年5月取得環境教育設施場所認證。
+
+                </div> -->
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+    <!-- ********************** -->
+    <footer class="col col-lg-12 p-0">
+        <div class="footer p-h-300">footer</div>
+    </footer>
+
+    <!-- *********** -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <!--  -->
+    <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+    <!-- ********* -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ***************** -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'fade',
+            loop: true,
+
+        });
+    </script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        var scene_header = document.getElementById('scene_header');
+        var parallaxInstance = new Parallax(scene_header);
+    </script>
+</body>
+
+</html>
