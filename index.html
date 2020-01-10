@@ -56,10 +56,10 @@
         }
 
         .pic {
-            width:200px;
-            height:200px;
+            width: 200px;
+            height: 200px;
             background-image: url("./img/2020-01-03-原地走v1.gif");
-            background-size:cover;
+            background-size: cover;
             position: absolute;
             left: 1%;
             /* top: 42%; */
@@ -129,24 +129,29 @@
             -o-transition: opacity 5s ease-in-out;
             transition: opacity 5s ease-in-out;
         }
+
         @media(max-width:365px) {
             .pic {
                 left: 1%;
-                top:10%;
+                top: 10%;
             }
-            .pic1{
+
+            .pic1 {
                 left: 0%;
-            top: 45%; 
+                top: 45%;
             }
+
             .pic2 {
                 left: 15%;
-            top: 42%; 
+                top: 42%;
             }
+
             .point {
                 left: 60%;
-            top: 67%; 
+                top: 67%;
             }
         }
+
         /* @media(max-width:768px) {
             .pic {
                 left: 1%;
@@ -165,20 +170,30 @@
             top: 55%; 
             }
         } */
+        .loading-bg{
+            background-image: url("./img/A-4.png");
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
     </style>
 </head>
 
 <body>
     <div class="page-Loading">
-        <div class="pic"></div>
-        <div class="pic1"><img src="./img/趣大坑.png" alt=""></div>
-        <a href="./index-mainpage.html">
-            <div class="pic2"><img src="./img/牌帶你入坑原木.png" alt=""></div>
-        </a>
-        <div class="point"></div>
-        <!-- <div class="progress">0</div> -->
-        <!-- <div class="loadbar"> -->
-        <!-- <div class="loading"></div> -->
+        <div class="loading-bg">
+            <div class="pic"></div>
+            <div class="pic1"><img src="./img/趣大坑.png" alt=""></div>
+            <a href="./index-mainpage.html">
+                <div class="pic2"><img src="./img/牌帶你入坑原木.png" alt=""></div>
+            </a>
+            <div class="point"></div>
+            <!-- <div class="progress">0</div> -->
+            <!-- <div class="loadbar"> -->
+            <!-- <div class="loading"></div> -->
+        </div>
     </div>
 
 
@@ -202,7 +217,7 @@
             randomSpeed = Math.floor((Math.random() * 100));
             $(".loading").css("width", percent + "%");
             $(".progress").text(percent + "%");
-            $(".pic").css("left", (walk -3) + "%");
+            $(".pic").css("left", (walk - 3) + "%");
             percent++;
             walk++;
             //    if (percent <= 100 ) {
