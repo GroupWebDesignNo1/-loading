@@ -1681,13 +1681,15 @@
         }
 
         /* Style the tab */
+
         .tab {
             float: left;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
+            /* border: 1px solid #ccc; */
+            /* background-color: #f1f1f1;
+            background-color: rgba(53, 53, 52, 0.8); */
+
             width: 200px;
             /* height: 300px; */
-
 
 
         }
@@ -1713,7 +1715,7 @@
         .tab button {
             display: block;
             background-color: inherit;
-            color: black;
+            color:rgb(230, 230, 230);
             padding: 60px 16px;
             width: 100%;
             border: none;
@@ -1723,16 +1725,21 @@
             transition: 0.3s;
             font-size: 24px;
             font-weight: 600;
+            background-color: rgba(53, 53, 52, 0.8);
+            border-radius: 10%;
+            margin-bottom: 20px;
+
+
         }
 
         /* Change background color of buttons on hover */
         .tab button:hover {
-            background-color: blue;
+            background-color: rgb(43, 75, 216);
         }
 
         /* Create an active/current "tab button" class */
         .tab button.active {
-            background-color: orange;
+            background-color: rgb(231, 157, 19);
         }
 
 
@@ -1793,7 +1800,7 @@
                 width: 40px;
                 position: absolute;
                 right: 10px;
-                background-color: rgba(59, 50, 48, 0.5);
+                /* background-color: rgba(59, 50, 48, 0.5); */
                 top: 235px;
             }
 
@@ -2081,7 +2088,7 @@
 
 
         <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'Bike-1')" id="defaultOpen">歡樂之旅</button>
+            <button class="tablinks" onclick="openCity(event, 'Bike-1')" id="defaultOpen" >歡樂之旅</button>
             <button class="tablinks" onclick="openCity(event, 'Bike-2')">深度之旅</button>
 
         </div>
