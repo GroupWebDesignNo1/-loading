@@ -22,8 +22,8 @@
     position: absolute;
     z-index: 900;
     border-radius: 5%;
-    bottom: 0%;
-    left: calc(50% - 18%);
+    bottom: 8%;
+    left: calc(50% - 16%);
     /* transform: translate(-50%, -50%) */
     /* 因為aos tramsform translate 被複寫 不使用 */
 }
